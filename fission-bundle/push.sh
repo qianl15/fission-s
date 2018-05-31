@@ -1,5 +1,7 @@
 #!/bin/bash
-
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/gocode"
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 set -e
 
 tag=$1
@@ -11,5 +13,5 @@ fi
 . build.sh
 
 docker build -t fission-bundle .
-docker tag fission-bundle fission/fission-bundle:$tag
-docker push fission/fission-bundle:$tag
+docker tag fission-bundle qianl15/fission-bundle:$tag
+docker push qianl15/fission-bundle:$tag
